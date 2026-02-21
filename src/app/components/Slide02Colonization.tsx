@@ -59,7 +59,7 @@ function CountUp({ target, suffix = "" }: { target: number; suffix?: string }) {
 
 export function Slide02Colonization() {
   return (
-    <div className="relative w-full h-full overflow-hidden bg-[#0A0A0A] flex flex-col items-center justify-center">
+    <div className="relative w-full h-full overflow-hidden bg-[#0A0A0A] flex flex-col items-center justify-center px-4 sm:px-8 md:px-12">
       {/* Grain overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -79,7 +79,7 @@ export function Slide02Colonization() {
         style={{
           fontFamily: "'Space Grotesk', sans-serif",
           fontWeight: 900,
-          fontSize: "clamp(80px, 12vw, 200px)",
+          fontSize: "clamp(56px, 12vw, 200px)",
           color: "#E5E5E5",
           letterSpacing: "-0.02em",
           lineHeight: 1,
@@ -93,17 +93,18 @@ export function Slide02Colonization() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.5 }}
         transition={{ delay: 0.6, duration: 0.6 }}
+        className="text-center"
         style={{
           fontFamily: "'Inter', sans-serif",
           fontWeight: 300,
-          fontSize: 20,
+          fontSize: "clamp(12px, 2.5vw, 20px)",
           color: "#E5E5E5",
           letterSpacing: "0.06em",
           marginTop: 8,
           textTransform: "uppercase",
         }}
       >
-        indígenas estimados antes da colonização
+        {'indigenas estimados antes da colonizacao'}
       </motion.div>
 
       {/* Divider */}
@@ -113,16 +114,17 @@ export function Slide02Colonization() {
         transition={{ delay: 0.9, duration: 0.8, ease: "easeInOut" }}
         style={{
           height: 1,
-          width: "60%",
+          width: "80%",
+          maxWidth: 600,
           background: "rgba(229,229,229,0.15)",
-          marginTop: 32,
-          marginBottom: 32,
+          marginTop: 20,
+          marginBottom: 20,
           transformOrigin: "center",
         }}
       />
 
-      {/* Three columns */}
-      <div className="flex gap-12 px-20" style={{ width: "100%" }}>
+      {/* Three columns — stack on mobile */}
+      <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 md:gap-12 w-full max-w-4xl">
         {factors.map((f, i) => (
           <motion.div
             key={f.title}
@@ -130,7 +132,7 @@ export function Slide02Colonization() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0 + i * 0.15, duration: 0.6 }}
             style={{ flex: 1 }}
-            className="flex flex-col items-center text-center gap-3"
+            className="flex flex-col items-center text-center gap-2 sm:gap-3"
           >
             <div>{f.icon}</div>
             <div
@@ -148,7 +150,7 @@ export function Slide02Colonization() {
               style={{
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 300,
-                fontSize: 13,
+                fontSize: "clamp(11px, 1.5vw, 13px)",
                 lineHeight: 1.65,
                 color: "#E5E5E5",
                 opacity: 0.65,
@@ -165,23 +167,24 @@ export function Slide02Colonization() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.6, duration: 0.5 }}
-        style={{ marginTop: 36 }}
+        style={{ marginTop: 24 }}
       >
         <span
+          className="text-center"
           style={{
             display: "inline-block",
             background: "rgba(255,77,0,0.15)",
             border: "1px solid rgba(255,77,0,0.4)",
             borderRadius: 999,
-            padding: "8px 24px",
+            padding: "6px 16px",
             fontFamily: "'Inter', sans-serif",
             fontWeight: 400,
-            fontSize: 13,
+            fontSize: "clamp(10px, 1.5vw, 13px)",
             color: "#FF4D00",
             letterSpacing: "0.1em",
           }}
         >
-          1,7 MILHÕES HOJE — CENSO 2022
+          {'1,7 MILHOES HOJE -- CENSO 2022'}
         </span>
       </motion.div>
     </div>

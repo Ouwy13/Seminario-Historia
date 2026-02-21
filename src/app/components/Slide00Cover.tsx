@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 
 import INDIGENOUS_IMG from "../../assets/indigena.jpeg";
 
-const members = ["ALEX", "SOFIA", "EDUARDO", "MAIZA B.", "JOSÉ"];
+const members = ["ALEX", "SOFIA", "EDUARDO", "MAIZA B.", "JOSE"];
 
 export function Slide00Cover() {
   return (
@@ -16,42 +16,32 @@ export function Slide00Cover() {
       >
         <img
           src={INDIGENOUS_IMG}
-          alt="Indígena Brasileiro"
+          alt="Indigena Brasileiro"
+          className="absolute top-0 right-0 h-full w-full md:w-[62%] object-cover"
           style={{
-            position: "absolute",
-            top: 0,
-            right: 0,
-            height: "100%",
-            width: "62%",
-            objectFit: "cover",
             objectPosition: "55% 20%",
-            /* ── mesmo filtro do frame final da intro ── */
             filter: "grayscale(30%) contrast(1.1) brightness(0.75)",
             opacity: 0.92,
           }}
         />
-        {/* Gradientes nas 4 bordas — mesmo estilo da intro */}
-        {/* Esquerda — idêntico ao da intro: sólido 20% → semi 55% → transparente 80% */}
+        {/* Gradientes nas 4 bordas */}
         <div style={{ position: "absolute", inset: 0, pointerEvents: "none",
           background: "linear-gradient(to right, #0A0A0A 40%, rgba(10,10,10,0.55) 50%, transparent 80%)" }}
         />
-        {/* Direita */}
         <div style={{ position: "absolute", inset: 0, pointerEvents: "none",
           background: "linear-gradient(to left, #0A0A0A 0%, rgba(10,10,10,0.5) 12%, transparent 32%)" }}
         />
-        {/* Topo */}
         <div style={{ position: "absolute", inset: 0, pointerEvents: "none",
           background: "linear-gradient(to bottom, #0A0A0A 0%, rgba(10,10,10,0.45) 14%, transparent 36%)" }}
         />
-        {/* Inferior */}
         <div style={{ position: "absolute", inset: 0, pointerEvents: "none",
           background: "linear-gradient(to top, #0A0A0A 0%, rgba(10,10,10,0.5) 18%, transparent 42%)" }}
         />
       </motion.div>
 
-      {/* Decorative circles — right side */}
+      {/* Decorative circles — right side (hidden on mobile) */}
       <div
-        className="absolute rounded-full pointer-events-none"
+        className="absolute rounded-full pointer-events-none hidden md:block"
         style={{
           width: 300,
           height: 300,
@@ -63,7 +53,7 @@ export function Slide00Cover() {
         }}
       />
       <div
-        className="absolute rounded-full pointer-events-none"
+        className="absolute rounded-full pointer-events-none hidden md:block"
         style={{
           width: 180,
           height: 180,
@@ -77,7 +67,7 @@ export function Slide00Cover() {
 
       {/* Top label */}
       <motion.div
-        className="absolute top-10 left-20"
+        className="absolute top-6 left-5 sm:top-8 sm:left-10 md:top-10 md:left-20"
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 0.6 }}
         transition={{ delay: 0.3, duration: 0.6 }}
@@ -89,13 +79,13 @@ export function Slide00Cover() {
           color: "#2EBD6B",
         }}
       >
-        GRUPO 4 — SEMINÁRIO
+        GRUPO 4 -- SEMINARIO
       </motion.div>
 
       {/* Main Title — left side */}
       <div
-        className="absolute"
-        style={{ left: 80, top: "50%", transform: "translateY(-55%)" }}
+        className="absolute left-5 sm:left-10 md:left-20"
+        style={{ top: "50%", transform: "translateY(-55%)" }}
       >
         {/* POVOS */}
         <div style={{ overflow: "hidden" }}>
@@ -106,7 +96,7 @@ export function Slide00Cover() {
             style={{
               fontFamily: "'Space Grotesk', sans-serif",
               fontWeight: 900,
-              fontSize: "clamp(80px, 9vw, 160px)",
+              fontSize: "clamp(48px, 9vw, 160px)",
               color: "#E5E5E5",
               letterSpacing: "0.04em",
               lineHeight: 1,
@@ -117,7 +107,7 @@ export function Slide00Cover() {
           </motion.div>
         </div>
 
-        {/* INDÍGENAS — outline with green stroke */}
+        {/* INDIGENAS — outline with green stroke */}
         <div style={{ overflow: "hidden" }}>
           <motion.div
             initial={{ x: -80, opacity: 0 }}
@@ -126,7 +116,7 @@ export function Slide00Cover() {
             style={{
               fontFamily: "'Space Grotesk', sans-serif",
               fontWeight: 900,
-              fontSize: "clamp(80px, 9vw, 160px)",
+              fontSize: "clamp(48px, 9vw, 160px)",
               color: "transparent",
               WebkitTextStroke: "2px #2EBD6B",
               letterSpacing: "0.04em",
@@ -134,7 +124,7 @@ export function Slide00Cover() {
               textTransform: "uppercase",
             }}
           >
-            INDÍGENAS
+            INDIGENAS
           </motion.div>
         </div>
 
@@ -146,18 +136,18 @@ export function Slide00Cover() {
           style={{
             fontFamily: "'Inter', sans-serif",
             fontWeight: 300,
-            fontSize: 18,
-            letterSpacing: "0.08em",
+            fontSize: "clamp(11px, 2.2vw, 18px)",
+            letterSpacing: "0.06em",
             color: "#E5E5E5",
-            marginTop: 20,
+            marginTop: 12,
           }}
         >
-          & A FORMAÇÃO SOCIOCULTURAL BRASILEIRA
+          {'& A FORMACAO SOCIOCULTURAL BRASILEIRA'}
         </motion.div>
       </div>
 
       {/* Member names — bottom right */}
-      <div className="absolute bottom-10 right-20 flex flex-col items-end gap-1">
+      <div className="absolute bottom-8 right-5 sm:bottom-10 sm:right-10 md:right-20 flex flex-col items-end gap-1">
         {members.map((name, i) => (
           <motion.div
             key={name}
@@ -167,7 +157,7 @@ export function Slide00Cover() {
             style={{
               fontFamily: "'Inter', sans-serif",
               fontWeight: 300,
-              fontSize: 12,
+              fontSize: "clamp(9px, 1.5vw, 12px)",
               letterSpacing: "0.12em",
               color: "#E5E5E5",
             }}

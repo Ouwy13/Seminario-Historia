@@ -42,10 +42,10 @@ const panels = [
 
 export function Slide03Peoples() {
   return (
-    <div className="relative w-full h-full overflow-hidden bg-[#0A0A0A] flex">
+    <div className="relative w-full h-full overflow-hidden bg-[#0A0A0A] flex flex-col md:flex-row">
       {/* Tag */}
       <motion.div
-        className="absolute top-10 left-10 z-20"
+        className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-10 md:left-10 z-20"
         initial={{ y: -16, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.5 }}
@@ -57,7 +57,7 @@ export function Slide03Peoples() {
           color: "#2EBD6B",
         }}
       >
-        03 — OS TRÊS POVOS FORMADORES
+        {'03 -- OS TRES POVOS FORMADORES'}
       </motion.div>
 
       {panels.map((p, i) => (
@@ -88,7 +88,7 @@ export function Slide03Peoples() {
           </div>
 
           {/* Content */}
-          <div className="relative z-10 p-10 pt-20">
+          <div className="relative z-10 p-4 pt-10 sm:p-6 sm:pt-14 md:p-10 md:pt-20">
             {/* Number watermark */}
             <div
               style={{
@@ -98,7 +98,7 @@ export function Slide03Peoples() {
                 letterSpacing: "0.15em",
                 color: "#E5E5E5",
                 opacity: 0.3,
-                marginBottom: 12,
+                marginBottom: 8,
               }}
             >
               {p.num}
@@ -109,18 +109,18 @@ export function Slide03Peoples() {
               style={{
                 fontFamily: "'Space Grotesk', sans-serif",
                 fontWeight: 700,
-                fontSize: 28,
+                fontSize: "clamp(18px, 3vw, 28px)",
                 letterSpacing: "0.06em",
                 color: p.accent,
                 textTransform: "uppercase",
-                marginBottom: 20,
+                marginBottom: 12,
               }}
             >
               {p.name}
             </div>
 
             {/* Items */}
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col gap-2 sm:gap-3">
               {p.items.map((item, j) => (
                 <li
                   key={j}
@@ -128,7 +128,7 @@ export function Slide03Peoples() {
                   style={{
                     fontFamily: "'Inter', sans-serif",
                     fontWeight: 300,
-                    fontSize: 13,
+                    fontSize: "clamp(10px, 1.4vw, 13px)",
                     lineHeight: 1.6,
                     color: "#E5E5E5",
                     opacity: 0.75,
@@ -141,7 +141,7 @@ export function Slide03Peoples() {
                       height: 4,
                       borderRadius: "50%",
                       background: p.accent,
-                      marginTop: 7,
+                      marginTop: 6,
                       flexShrink: 0,
                     }}
                   />

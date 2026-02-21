@@ -94,7 +94,8 @@ export function IntroScreen({ onComplete }: IntroScreenProps) {
           alignItems: "center",
           justifyContent: "center",
           zIndex: 2,
-          gap: 16,
+          gap: 12,
+          padding: "0 16px",
         }}
       >
         <motion.div
@@ -104,8 +105,8 @@ export function IntroScreen({ onComplete }: IntroScreenProps) {
           style={{
             fontFamily: "'Playfair Display', serif",
             fontStyle: "italic",
-            fontSize: 16,
-            letterSpacing: "0.4em",
+            fontSize: "clamp(10px, 2.5vw, 16px)",
+            letterSpacing: "0.3em",
             color: "#E5E5E5",
             textTransform: "uppercase",
             textAlign: "center",
@@ -168,17 +169,17 @@ export function IntroScreen({ onComplete }: IntroScreenProps) {
             repeatType: "loop",
           }}
           style={{
-            marginTop: 32,
+            marginTop: 24,
             fontFamily: "'Inter', sans-serif",
             fontWeight: 300,
-            fontSize: 11,
-            letterSpacing: "0.35em",
+            fontSize: "clamp(9px, 2vw, 11px)",
+            letterSpacing: "0.3em",
             color: "#E5E5E5",
             textTransform: "uppercase",
             textAlign: "center",
           }}
         >
-          CLIQUE PARA CONTINUAR
+          TOQUE PARA CONTINUAR
         </motion.div>
       </div>
 

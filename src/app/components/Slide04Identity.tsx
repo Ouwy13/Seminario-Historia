@@ -10,14 +10,14 @@ const timelinePoints = [
 
 export function Slide04Identity() {
   return (
-    <div className="relative w-full h-full overflow-hidden bg-[#0A0A0A] flex flex-col justify-between px-20 py-14">
+    <div className="relative w-full h-full overflow-hidden bg-[#0A0A0A] flex flex-col justify-between px-4 py-6 sm:px-10 sm:py-10 md:px-20 md:py-14">
       {/* Watermark word */}
       <div
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
         style={{
           fontFamily: "'Space Grotesk', sans-serif",
           fontWeight: 900,
-          fontSize: "clamp(80px, 11vw, 180px)",
+          fontSize: "clamp(48px, 11vw, 180px)",
           color: "#E5E5E5",
           opacity: 0.05,
           letterSpacing: "0.05em",
@@ -29,7 +29,7 @@ export function Slide04Identity() {
       </div>
 
       {/* Top section */}
-      <div className="flex gap-16 relative z-10">
+      <div className="flex relative z-10">
         {/* Tag */}
         <div className="flex-1">
           <motion.div
@@ -42,10 +42,10 @@ export function Slide04Identity() {
               fontSize: 11,
               letterSpacing: "0.18em",
               color: "#2EBD6B",
-              marginBottom: 20,
+              marginBottom: 12,
             }}
           >
-            04 — IDENTIDADE EM CONSTRUÇÃO
+            {'04 -- IDENTIDADE EM CONSTRUCAO'}
           </motion.div>
 
           <motion.div
@@ -55,12 +55,12 @@ export function Slide04Identity() {
             style={{
               fontFamily: "'Space Grotesk', sans-serif",
               fontWeight: 900,
-              fontSize: "clamp(40px, 4.5vw, 72px)",
+              fontSize: "clamp(28px, 4.5vw, 72px)",
               color: "#E5E5E5",
               lineHeight: 1.05,
               letterSpacing: "0.02em",
               textTransform: "uppercase",
-              marginBottom: 24,
+              marginBottom: 16,
             }}
           >
             IDENTIDADE<br />
@@ -81,17 +81,14 @@ export function Slide04Identity() {
             style={{
               fontFamily: "'Inter', sans-serif",
               fontWeight: 300,
-              fontSize: 14,
-              lineHeight: 1.8,
+              fontSize: "clamp(11px, 1.6vw, 14px)",
+              lineHeight: 1.7,
               color: "#E5E5E5",
               maxWidth: 480,
-              marginBottom: 24,
+              marginBottom: 16,
             }}
           >
-            A identidade sociocultural do Brasil é resultado de um processo
-            histórico complexo e tenso, marcado pela mistura, mas também pelo
-            apagamento e resistência. Cada povo trouxe contribuições que
-            moldaram língua, culinária, religiosidade, música e visão de mundo.
+            {'A identidade sociocultural do Brasil e resultado de um processo historico complexo e tenso, marcado pela mistura, mas tambem pelo apagamento e resistencia. Cada povo trouxe contribuicoes que moldaram lingua, culinaria, religiosidade, musica e visao de mundo.'}
           </motion.p>
 
           {/* Tension pill */}
@@ -106,10 +103,10 @@ export function Slide04Identity() {
                 background: "rgba(255,77,0,0.12)",
                 border: "1px solid rgba(255,77,0,0.4)",
                 borderRadius: 999,
-                padding: "7px 18px",
+                padding: "6px 14px",
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 500,
-                fontSize: 11,
+                fontSize: "clamp(9px, 1.3vw, 11px)",
                 color: "#FF4D00",
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
@@ -155,12 +152,12 @@ export function Slide04Identity() {
                   style={{
                     fontFamily: "'Inter', sans-serif",
                     fontWeight: 300,
-                    fontSize: 11,
+                    fontSize: "clamp(8px, 1.3vw, 11px)",
                     color: "#E5E5E5",
                     opacity: 0.55,
                     textAlign: "center",
                     lineHeight: 1.4,
-                    marginBottom: 8,
+                    marginBottom: 6,
                     whiteSpace: "pre-line",
                   }}
                 >
@@ -169,8 +166,8 @@ export function Slide04Identity() {
                 {/* Dot */}
                 <div
                   style={{
-                    width: 8,
-                    height: 8,
+                    width: 6,
+                    height: 6,
                     borderRadius: "50%",
                     background: "#2EBD6B",
                   }}
@@ -180,9 +177,9 @@ export function Slide04Identity() {
                   style={{
                     fontFamily: "'Space Grotesk', sans-serif",
                     fontWeight: 600,
-                    fontSize: 13,
+                    fontSize: "clamp(9px, 1.4vw, 13px)",
                     color: "#2EBD6B",
-                    marginTop: 6,
+                    marginTop: 4,
                     letterSpacing: "0.05em",
                   }}
                 >

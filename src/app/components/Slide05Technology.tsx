@@ -54,9 +54,9 @@ export function Slide05Technology() {
         <div className="absolute inset-0 bg-[#0A0A0A] opacity-60" />
       </div>
 
-      {/* Decorative circles */}
+      {/* Decorative circles (hidden on small screens) */}
       <div
-        className="absolute rounded-full pointer-events-none"
+        className="absolute rounded-full pointer-events-none hidden sm:block"
         style={{
           width: 500,
           height: 500,
@@ -67,7 +67,7 @@ export function Slide05Technology() {
         }}
       />
       <div
-        className="absolute rounded-full pointer-events-none"
+        className="absolute rounded-full pointer-events-none hidden sm:block"
         style={{
           width: 280,
           height: 280,
@@ -78,7 +78,7 @@ export function Slide05Technology() {
         }}
       />
 
-      <div className="relative z-10 flex flex-col h-full px-20 py-14 justify-between">
+      <div className="relative z-10 flex flex-col h-full px-4 py-6 sm:px-10 sm:py-10 md:px-20 md:py-14 justify-between">
         {/* Title */}
         <div>
           <motion.div
@@ -91,10 +91,10 @@ export function Slide05Technology() {
               fontSize: 11,
               letterSpacing: "0.18em",
               color: "#2EBD6B",
-              marginBottom: 16,
+              marginBottom: 12,
             }}
           >
-            05 — TECNOLOGIA & PRESERVAÇÃO
+            {'05 -- TECNOLOGIA & PRESERVACAO'}
           </motion.div>
 
           <motion.div
@@ -104,7 +104,7 @@ export function Slide05Technology() {
             style={{
               fontFamily: "'Space Grotesk', sans-serif",
               fontWeight: 900,
-              fontSize: "clamp(50px, 6vw, 100px)",
+              fontSize: "clamp(32px, 6vw, 100px)",
               color: "#E5E5E5",
               lineHeight: 0.95,
               letterSpacing: "0.02em",
@@ -120,7 +120,7 @@ export function Slide05Technology() {
             style={{
               fontFamily: "'Space Grotesk', sans-serif",
               fontWeight: 900,
-              fontSize: "clamp(50px, 6vw, 100px)",
+              fontSize: "clamp(32px, 6vw, 100px)",
               color: "transparent",
               WebkitTextStroke: "2px #2EBD6B",
               lineHeight: 0.95,
@@ -132,11 +132,11 @@ export function Slide05Technology() {
           </motion.div>
         </div>
 
-        {/* Cards */}
-        <div className="flex gap-6 relative">
-          {/* Connection lines SVG */}
+        {/* Cards — stack on mobile */}
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 relative">
+          {/* Connection lines SVG (hidden on mobile) */}
           <svg
-            className="absolute inset-0 pointer-events-none"
+            className="absolute inset-0 pointer-events-none hidden sm:block"
             style={{ width: "100%", height: "100%", overflow: "visible" }}
           >
             {[33, 66].map((pct, i) => (
@@ -167,12 +167,12 @@ export function Slide05Technology() {
                 background: "rgba(255,255,255,0.06)",
                 border: "1px solid rgba(255,255,255,0.12)",
                 borderRadius: 12,
-                padding: "24px 28px",
+                padding: "16px 20px",
                 backdropFilter: "blur(12px)",
               }}
             >
               <div
-                style={{ color: "#2EBD6B", marginBottom: 14, opacity: 0.9 }}
+                style={{ color: "#2EBD6B", marginBottom: 10, opacity: 0.9 }}
               >
                 {card.icon}
               </div>
@@ -180,7 +180,7 @@ export function Slide05Technology() {
                 style={{
                   fontFamily: "'Space Grotesk', sans-serif",
                   fontWeight: 700,
-                  fontSize: 16,
+                  fontSize: "clamp(13px, 1.8vw, 16px)",
                   color: "#E5E5E5",
                   letterSpacing: "0.04em",
                   marginBottom: 2,
@@ -192,9 +192,9 @@ export function Slide05Technology() {
                 style={{
                   fontFamily: "'Playfair Display', serif",
                   fontStyle: "italic",
-                  fontSize: 13,
+                  fontSize: "clamp(11px, 1.4vw, 13px)",
                   color: "#2EBD6B",
-                  marginBottom: 14,
+                  marginBottom: 10,
                   opacity: 0.8,
                 }}
               >
@@ -204,8 +204,8 @@ export function Slide05Technology() {
                 style={{
                   fontFamily: "'Inter', sans-serif",
                   fontWeight: 300,
-                  fontSize: 13,
-                  lineHeight: 1.65,
+                  fontSize: "clamp(11px, 1.4vw, 13px)",
+                  lineHeight: 1.6,
                   color: "#E5E5E5",
                   opacity: 0.6,
                 }}
