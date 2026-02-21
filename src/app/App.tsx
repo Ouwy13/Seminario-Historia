@@ -81,6 +81,31 @@ export default function App() {
     return () => window.removeEventListener("keydown", handler);
   }, [goNext, goPrev, showIntro]);
 
+  // Touch/swipe support for mobile
+  useEffect(() => {
+    let startX = 0;
+    let startY = 0;
+    const handleTouchStart = (e: TouchEvent) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    };
+    const handleTouchEnd = (e: TouchEvent) => {
+      if (showIntro) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      const dy = e.changedTouches[0].clientY - startY;
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+        if (dx < 0) goNext();
+        else goPrev();
+      }
+    };
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd, { passive: true });
+    return () => {
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [goNext, goPrev, showIntro]);
+
   const isWipe = wipeSlides.has(current);
   const transitionDuration = isWipe ? 0.4 : 0.8;
 
@@ -161,10 +186,10 @@ export default function App() {
       <button
         onClick={goPrev}
         disabled={current === 0 || showIntro}
-        className="absolute left-6 top-1/2 z-40 -translate-y-1/2 flex items-center justify-center transition-all duration-300"
+        className="absolute left-2 sm:left-4 md:left-6 top-1/2 z-40 -translate-y-1/2 flex items-center justify-center transition-all duration-300"
         style={{
-          width: 40,
-          height: 40,
+          width: 32,
+          height: 32,
           border: "1px solid rgba(46,189,107,0.3)",
           borderRadius: "50%",
           background: "rgba(10,10,10,0.6)",
@@ -174,7 +199,7 @@ export default function App() {
           color: "#2EBD6B",
         }}
       >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <polyline points="15 18 9 12 15 6" />
         </svg>
       </button>
@@ -182,10 +207,10 @@ export default function App() {
       <button
         onClick={goNext}
         disabled={current === TOTAL_SLIDES - 1 || showIntro}
-        className="absolute right-6 top-1/2 z-40 -translate-y-1/2 flex items-center justify-center transition-all duration-300"
+        className="absolute right-2 sm:right-4 md:right-6 top-1/2 z-40 -translate-y-1/2 flex items-center justify-center transition-all duration-300"
         style={{
-          width: 40,
-          height: 40,
+          width: 32,
+          height: 32,
           border: "1px solid rgba(46,189,107,0.3)",
           borderRadius: "50%",
           background: "rgba(10,10,10,0.6)",
@@ -195,14 +220,14 @@ export default function App() {
           color: "#2EBD6B",
         }}
       >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <polyline points="9 18 15 12 9 6" />
         </svg>
       </button>
 
       {/* ── Dots ── */}
       <div
-        className="absolute bottom-6 left-1/2 z-40 flex items-center gap-3"
+        className="absolute bottom-3 sm:bottom-6 left-1/2 z-40 flex items-center gap-2 sm:gap-3"
         style={{ transform: "translateX(-50%)" }}
       >
         {ALL_LABELS.map((label, i) => (
@@ -211,8 +236,8 @@ export default function App() {
             onClick={() => !showIntro && goTo(i)}
             title={label}
             style={{
-              width: i === current ? 24 : 6,
-              height: 6,
+              width: i === current ? 20 : 5,
+              height: 5,
               borderRadius: 999,
               background: i === current ? "#2EBD6B" : "rgba(46,189,107,0.22)",
               border: "none",
@@ -227,7 +252,7 @@ export default function App() {
 
       {/* ── Counter ── */}
       <div
-        className="absolute bottom-6 right-8 z-40"
+        className="absolute bottom-3 sm:bottom-6 right-3 sm:right-8 z-40 hidden sm:block"
         style={{
           fontFamily: "'Inter', sans-serif",
           fontWeight: 300,
@@ -242,7 +267,7 @@ export default function App() {
 
       {/* ── Label ── */}
       <div
-        className="absolute bottom-6 left-8 z-40"
+        className="absolute bottom-3 sm:bottom-6 left-3 sm:left-8 z-40 hidden sm:block"
         style={{
           fontFamily: "'Inter', sans-serif",
           fontWeight: 300,
